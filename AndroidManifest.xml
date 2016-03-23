@@ -13,8 +13,8 @@
     <!-- версии sdk-->
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="17"
-        android:maxSdkVersion="17"/>
+        android:targetSdkVersion="17"/>
+        <!--android:maxSdkVersion="17"/-->
 
     <!-- задается иконка приложения icon -->
     <!-- название приложения отображается в списке и заголовке label -->
@@ -39,11 +39,23 @@
         <activity
             android:label="Left"
             android:name=".Left">
-        </activity>"
+        </activity>
         <activity
             android:label="Right"
             android:name=".Right">
-        </activity>"
+        </activity>
+        <activity
+                android:label="Profile"
+                android:name=".ProfileActivity">
+        </activity>
+        <activity
+                android:label="Question"
+                android:name=".QuestionActivity">
+        </activity>
+        <activity
+                android:label="Tests"
+                android:name=".ListTestsActivity">
+        </activity>
     </application>
 
 </manifest>

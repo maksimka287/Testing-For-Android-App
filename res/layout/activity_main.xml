@@ -16,7 +16,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_alignParentBottom="true"
-            android:theme="">
+            android:theme="@style/DarkStyle.Gray">
 
         <ImageView
                 android:id="@+id/mainImage"
@@ -57,9 +57,9 @@
                     android:id="@+id/entry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/label"
+                    android:layout_below="@+id/login"
                     android:background="@android:drawable/editbox_background"
-                    android:text="Логин">
+                    android:text="">
             </EditText>
 
         <!--/LinearLayout-->
@@ -84,10 +84,10 @@
                     android:id="@+id/entry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/label"
+                    android:layout_below="@+id/password"
                     android:password="true"
                     android:background="@android:drawable/editbox_background"
-                    android:text="Пароль">
+                    android:text="">
             </EditText>
 
         <!--/LinearLayout-->

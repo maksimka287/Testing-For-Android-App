@@ -8,6 +8,8 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Menu;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 	private GestureDetector gestureDetector;
@@ -16,6 +18,15 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+       /* Button Enter = (Button) findViewById(R.id.ok);
+        Enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });*/
 
 		gestureDetector = new GestureDetector(new SwipeGestureDetector());
 		

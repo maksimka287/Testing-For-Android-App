@@ -14,26 +14,27 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true">
+            android:layout_centerVertical="true"
+            android:gravity="center">
 
         <!-- временная метка для определения экрана -->
-        <TextView
+        <!--TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:text="Главный экран"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge" /-->
 
         <!-- поле ввода логина с лейблом -->
-        <!--LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_centerInParent="true"-->
+                android:layout_centerInParent="true">
 
-        <!--TextView
+        <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,18 +50,18 @@
                 android:layout_below="@+id/label"
                 android:background="@android:drawable/editbox_background"
                 android:text="Логин">
-        </EditText-->
+        </EditText>
 
-        <!--/LinearLayout-->
+        </LinearLayout>
 
         <!-- поле ввода пароля с лейблом -->
-        <!--LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_centerInParent="true"-->
+                android:layout_centerInParent="true">
 
-        <!--TextView
+        <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,21 +78,22 @@
                 android:password="true"
                 android:background="@android:drawable/editbox_background"
                 android:text="Пароль">
-        </EditText-->
+        </EditText>
 
-        <!--/LinearLayout-->
+        </LinearLayout>
 
-        <!--Button
+        <Button
                 android:id="@+id/ok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/entry"
                 android:layout_marginLeft="0dp"
+                android:onClick="onClickEnter"
                 android:text="Вход">
-        </Button-->
+        </Button>
 
-        <LinearLayout
+        <!--LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -117,7 +119,7 @@
         android:text="Далее">
         </Button>
 
-        </LinearLayout>
+        </LinearLayout-->
 
     </LinearLayout>
 
