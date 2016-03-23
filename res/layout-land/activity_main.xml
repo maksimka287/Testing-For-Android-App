@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:text="first page"
+                android:text="Главный экран"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <!-- поле ввода логина с лейблом -->
@@ -33,7 +33,7 @@
                 android:orientation="horizontal"
                 android:layout_centerInParent="true"-->
 
-        <TextView
+        <!--TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 android:layout_below="@+id/label"
                 android:background="@android:drawable/editbox_background"
                 android:text="Логин">
-        </EditText>
+        </EditText-->
 
         <!--/LinearLayout-->
 
@@ -60,7 +60,7 @@
                 android:orientation="horizontal"
                 android:layout_centerInParent="true"-->
 
-        <TextView
+        <!--TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,9 +77,25 @@
                 android:password="true"
                 android:background="@android:drawable/editbox_background"
                 android:text="Пароль">
-        </EditText>
+        </EditText-->
 
         <!--/LinearLayout-->
+
+        <!--Button
+                android:id="@+id/ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/entry"
+                android:layout_marginLeft="0dp"
+                android:text="Вход">
+        </Button-->
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true">
 
         <Button
                 android:id="@+id/ok"
@@ -88,8 +104,20 @@
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/entry"
                 android:layout_marginLeft="0dp"
-                android:text="Вход">
+                android:text="Назад">
         </Button>
+
+        <Button
+        android:id="@+id/ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/entry"
+        android:layout_marginLeft="0dp"
+        android:text="Далее">
+        </Button>
+
+        </LinearLayout>
 
     </LinearLayout>
 
