@@ -4,33 +4,42 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
-import android.view.GestureDetector;
+import android.view.*;
 import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.Menu;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	private GestureDetector gestureDetector;
+    private static final int LENGTH_LONG = 2000;
+    private static final String SUCCESS_REG = "Поздравляем, вы зарегистрированы!";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-       /* Button Enter = (Button) findViewById(R.id.ok);
-        Enter.setOnClickListener(new View.OnClickListener() {
+        Button enter = (Button) findViewById(R.id.ok);
+        enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //создаем и отображаем текстовое уведомление
+                Toast toast = Toast.makeText(getApplicationContext(),SUCCESS_REG,Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+
                 Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                intent.addFlags(1073741824);
                 startActivity(intent);
             }
-        });*/
+        });
 
 		gestureDetector = new GestureDetector(new SwipeGestureDetector());
 		
 	}
+
 	 @Override
 	  public boolean onTouchEvent(MotionEvent event) {
 	    if (gestureDetector.onTouchEvent(event)) {
@@ -90,7 +99,6 @@ public class MainActivity extends Activity {
 	      return false;
 	    }
 	  }
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

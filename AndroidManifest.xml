@@ -21,9 +21,9 @@
     <!-- текущая тема приложения theme -->
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:theme="@style/DarkStyle" >
+        android:theme="@style/DarkStyleGray" >
 
         <!-- активити приложения -->
         <activity
@@ -45,16 +45,19 @@
             android:name=".Right">
         </activity>
         <activity
-                android:label="Profile"
-                android:name=".ProfileActivity">
+                android:label="Профиль пользователя"
+                android:name=".ProfileActivity"
+                android:launchMode="singleTop">
         </activity>
         <activity
-                android:label="Question"
-                android:name=".QuestionActivity">
+                android:label="Вопрос теста"
+                android:name=".QuestionActivity"
+                android:launchMode="singleTop">
         </activity>
         <activity
-                android:label="Tests"
-                android:name=".ListTestsActivity">
+                android:label="Список тестов"
+                android:name=".ListTestsActivity"
+                android:launchMode="singleTop">
         </activity>
     </application>
 

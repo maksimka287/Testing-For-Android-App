@@ -9,11 +9,40 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 tools:context=".ListTestsActivity" >
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:theme="@style/DarkStyleGray">
 
-</LinearLayout>
+    <ListView
+            android:id="@+id/list_tests_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    </ListView>
+
+    <!--LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="bottom"
+                  android:theme="@style/DarkStyleGray">
+
+    <Button
+            android:id="@+id/list_tests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/list_tests"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            android:text="Профиль">
+    </Button>
+
+</LinearLayout-->
+
+    </LinearLayout>
 
 </RelativeLayout>

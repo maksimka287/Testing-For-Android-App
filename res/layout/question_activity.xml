@@ -12,8 +12,149 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:gravity="bottom"
+              android:theme="@style/DarkStyleGray">
+
+    <TextView
+        android:id="@+id/getNumTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text=""
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="top"/>
+
+    <MultiAutoCompleteTextView
+            android:id="@+id/textQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:text=""
+            android:gravity="top"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:theme="@style/DarkStyleGray"
+                  android:gravity="top">
+
+        <TextView
+                android:id="@+id/textRequest1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text=""
+                android:layout_marginLeft="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioButton
+            android:id="@+id/request1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:theme="@style/DarkStyleGray"
+                  android:gravity="top">
+
+        <TextView
+                android:id="@+id/textRequest2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text=""
+                android:layout_marginLeft="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioButton
+            android:id="@+id/request2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:theme="@style/DarkStyleGray"
+                  android:gravity="top">
+
+        <TextView
+                android:id="@+id/textRequest3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text=""
+                android:layout_marginLeft="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioButton
+            android:id="@+id/request3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="bottom">
+
+        <Button
+                android:id="@+id/skip_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/skip_question"
+                android:layout_marginLeft="0dp"
+                android:text="Пропустить вопрос">
+        </Button>
+
+    <Button
+            android:id="@+id/question"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/question"
+            android:layout_marginLeft="0dp"
+            android:text="Завершить тест">
+    </Button>
 
 </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
