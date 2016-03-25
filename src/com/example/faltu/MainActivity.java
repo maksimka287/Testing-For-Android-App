@@ -14,11 +14,15 @@ public class MainActivity extends Activity {
 	private GestureDetector gestureDetector;
     private static final int LENGTH_LONG = 2000;
     private static final String SUCCESS_REG = "Поздравляем, вы зарегистрированы!";
+    private Connection connection;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+        // создаем объект для создания и управления версиями БД
+        connection = new Connection(this);
 
         Button enter = (Button) findViewById(R.id.ok);
         enter.setOnClickListener(new View.OnClickListener() {

@@ -24,8 +24,18 @@ public class QuestionActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_activity);
 
-        Button question = (Button) findViewById(R.id.question);
-        question.setOnClickListener(new View.OnClickListener() {
+        Button end_test = (Button) findViewById(R.id.end_test);
+        end_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(QuestionActivity.this, ProfileActivity.class);
+                intent.addFlags(1073741824);
+                startActivity(intent);
+            }
+        });
+
+        Button skip_question = (Button) findViewById(R.id.skip_question);
+        skip_question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(QuestionActivity.this, ProfileActivity.class);
@@ -42,6 +52,15 @@ public class QuestionActivity extends Activity {
                              "\n содается так много машин, заводов " +
                              "\n и разной другой живности. " +
                              "\n Наверно просто жывотные хотят что-то делать.");
+
+        TextView request1 = (TextView) findViewById(R.id.request1);
+        request1.setText("Да");
+
+        TextView request2 = (TextView) findViewById(R.id.request2);
+        request1.setText("Нет");
+
+        TextView request3 = (TextView) findViewById(R.id.request3);
+        request1.setText("Возможно");
 
     }
 

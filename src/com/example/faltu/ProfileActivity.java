@@ -2,9 +2,11 @@ package com.example.faltu;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 /**
  * Created by MaKsa on 24.03.16.
