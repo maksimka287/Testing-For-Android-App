@@ -14,6 +14,7 @@ import android.widget.ListView;
  */
 public class ListTestsActivity extends Activity {
 
+    //private String[] tests_1 = getResources().getStringArray(R.array.tests);
     private static final String[] tests = { "Тест на эгоизм.",
                                             "Твоя самооценка.",
                                             "Какая твоя стихия.",
@@ -53,8 +54,7 @@ public class ListTestsActivity extends Activity {
         ListView list_tests_view = (ListView) findViewById(R.id.list_tests_view);
 
         // создаем адаптер
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, tests);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tests);
 
         // присваиваем адаптер списку
         list_tests_view.setAdapter(adapter);

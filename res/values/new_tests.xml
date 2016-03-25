@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--список названий тестов-->
     <string-array name="tests">
         <item>Тест на эгоизм</item>
         <item>Твоя самооценка</item>

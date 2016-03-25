@@ -8,7 +8,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context=".MainActivity"
-        android:background="@drawable/fon1">
+        android:background="@drawable/fon2">
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -20,7 +20,9 @@
                 android:layout_marginLeft="0dp"
                 android:layout_marginRight="0dp"
                 android:gravity="center_vertical"
-                android:theme="@style/DarkStyleGray">
+                android:theme="@style/DarkStyleGray"
+                android:background="@android:color/darker_gray"
+                android:alpha="0.95">
 
                 <ImageView
                         android:id="@+id/mainImage"
@@ -61,11 +63,10 @@
                                 android:layout_marginTop="2dp"
                                 android:textAppearance="?android:attr/textAppearanceLarge" />
                         <EditText
-                                android:id="@+id/entry"
+                                android:id="@+id/e_login"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:layout_below="@+id/login"
                                 android:background="@android:drawable/editbox_background"
                                 android:layout_marginLeft="2dp"
                                 android:layout_marginBottom="2dp"
@@ -95,11 +96,10 @@
                                 android:layout_marginTop="2dp"
                                 android:textAppearance="?android:attr/textAppearanceLarge" />
                         <EditText
-                                android:id="@+id/entry"
+                                android:id="@+id/e_pass"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:layout_below="@+id/password"
                                 android:password="true"
                                 android:background="@android:drawable/editbox_background"
                                 android:layout_marginLeft="2dp"
@@ -111,11 +111,10 @@
                 </LinearLayout>
 
                 <Button
-                        android:id="@+id/ok"
+                        android:id="@+id/entry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_below="@+id/entry"
                         android:layout_marginLeft="2dp"
                         android:layout_marginBottom="2dp"
                         android:layout_marginRight="2dp"

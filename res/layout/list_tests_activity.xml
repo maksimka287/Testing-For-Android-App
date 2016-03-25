@@ -15,7 +15,9 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:theme="@style/DarkStyleGray">
+                android:theme="@style/DarkStyleGray"
+                android:background="@android:color/darker_gray"
+                android:alpha="0.95">
 
                 <ListView
                         android:id="@+id/list_tests_view"

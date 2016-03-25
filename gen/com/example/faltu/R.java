@@ -26,9 +26,6 @@ public final class R {
 
         public static final int fon1=0x7f020002;
         public static final int fon2=0x7f020003;
-        public static final int fon3=0x7f020004;
-        public static final int fon4=0x7f020005;
-        public static final int fon5=0x7f020006;
     }
     public static final class id {
         public static final int action_settings=0x7f080001;
