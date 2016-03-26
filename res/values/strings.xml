@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--название приложения-->
     <string name="app_name">ПсихТесты</string>
+    <!--название проекта-->
+    <string name="project_name">Faltu</string>
+
     <string name="action_settings">О программе</string>
 
 </resources>
