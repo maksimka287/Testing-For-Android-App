@@ -31,7 +31,8 @@
                         android:layout_marginRight="2dp"
                         android:layout_marginTop="2dp"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:gravity="top"/>
+                        android:gravity="top"
+                        android:theme="@style/DarkStyleGray"/>
 
                 <MultiAutoCompleteTextView
                         android:id="@+id/textQuestion"
@@ -42,42 +43,30 @@
                         android:gravity="top"/>
 
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:theme="@style/DarkStyleGray"
                         android:gravity="top">
                         <TextView
                                 android:id="@+id/textRequest1"
-                                android:layout_width="0dp"
+                                android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="5"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentTop="true"
                                 android:text=""
                                 android:layout_marginLeft="2dp"
                                 android:layout_marginBottom="2dp"
                                 android:layout_marginRight="2dp"
                                 android:layout_marginTop="2dp"
-                                android:textAppearance="?android:attr/textAppearanceLarge"/>
-                        <RadioButton
-                                android:id="@+id/request1"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"/>
-                </LinearLayout>
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:theme="@style/DarkStyleGray"
+                                android:textColor="@android:color/darker_gray"
+                                android:layout_gravity="right"/>
 
-                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:theme="@style/DarkStyleGray"
-                        android:gravity="top">
                         <TextView
                                 android:id="@+id/textRequest2"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="5"
+                                android:layout_weight="10"
                                 android:layout_alignParentLeft="true"
                                 android:layout_alignParentTop="true"
                                 android:text=""
@@ -85,20 +74,9 @@
                                 android:layout_marginBottom="2dp"
                                 android:layout_marginRight="2dp"
                                 android:layout_marginTop="2dp"
-                                android:textAppearance="?android:attr/textAppearanceLarge"/>
-                        <RadioButton
-                                android:id="@+id/request2"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"/>
-                </LinearLayout>
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:theme="@style/DarkStyleGray"/>
 
-                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:theme="@style/DarkStyleGray"
-                        android:gravity="top">
                         <TextView
                                 android:id="@+id/textRequest3"
                                 android:layout_width="0dp"
@@ -112,11 +90,38 @@
                                 android:layout_marginRight="2dp"
                                 android:layout_marginTop="2dp"
                                 android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+                        <RadioGroup
+                                android:id="@+id/radioGroup1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#333333"
+                                android:orientation="vertical" >
+
                         <RadioButton
-                                android:id="@+id/request3"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"/>
+                                android:id="@+id/radio_red"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:layout_weight="1" />
+
+                        <RadioButton
+                                android:id="@+id/radio_blue"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:layout_weight="1" />
+
+                        <RadioButton
+                                android:id="@+id/radio_green"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:layout_weight="1" />
+                        </RadioGroup>
+
+
+
                 </LinearLayout>
 
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
