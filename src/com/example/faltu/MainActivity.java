@@ -27,10 +27,11 @@ public class MainActivity extends Activity {
     private boolean        do_register = false;
     EditText edit_login;
     EditText edit_pass;
+    private boolean authorization = true; //отключение проверки пользователч
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
         // создаем объект для создания и управления версиями БД
@@ -68,7 +69,7 @@ public class MainActivity extends Activity {
                     getMessage(FAIL_REG);
                 }
 
-                if (do_register) {
+                if ((do_register) || (authorization)) {
                     Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                     intent.addFlags(1073741824);
                     startActivity(intent);
@@ -87,7 +88,7 @@ public class MainActivity extends Activity {
 		
 	}
 
-	 @Override
+    @Override
 	  public boolean onTouchEvent(MotionEvent event) {
 	    if (gestureDetector.onTouchEvent(event)) {
 	      return true;
