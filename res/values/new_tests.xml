@@ -2,7 +2,7 @@
 <resources>
 
     <!--список названий тестов-->
-    <string-array name="tests">
+    <string-array name="tests1">
         <item>Тест на эгоизм</item>
         <item>Твоя самооценка</item>
         <item>Какая твоя стихия</item>
@@ -52,9 +52,6 @@
         </string-array> </item>
 
     </array>
-
-
-
 
     <string name="test2">О программе</string>
     <string name="test3">ПсихТесты</string>
