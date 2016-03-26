@@ -14,27 +14,11 @@ import android.widget.ListView;
  */
 public class ListTestsActivity extends Activity {
 
-    //private String[] tests_1 = getResources().getStringArray(R.array.tests);
-    private static final String[] tests = { "Тест на эгоизм.",
-                                            "Твоя самооценка.",
-                                            "Какая твоя стихия.",
-                                            "Кто ты по натуре.",
-                                            "А ты не сумашедший?",
-                                            "Тест на оптимизм.",
-                                            "Какой у Вас характер.",
-                                            "Ленивы ли Вы.",
-                                            "Лидер ли Вы.",
-                                            "Тест на практичность.",
-                                            "Ваш стиль общения.",
-                                            "...",
-                                            "...",
-                                            "...",
-                                            "...",
-                                            "...",
-                                            "...",
-                                            "...",
-                                            "...",
-                                            "..."};
+    private MainActivity main = new MainActivity();
+    private ArrayAdapter<String> adapter;
+    private ListView list_tests_view;
+
+    private String[] tests_1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,24 +34,44 @@ public class ListTestsActivity extends Activity {
             }
         });*/
 
-        // находим список
-        ListView list_tests_view = (ListView) findViewById(R.id.list_tests_view);
+        //String str = tests_1[2];
 
-        // создаем адаптер
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tests);
+        try{
+            // находим список
+            list_tests_view = (ListView) findViewById(R.id.list_tests_view);
+        } catch (Exception e) {
+            main.getMessage(e.toString());
+        }
 
-        // присваиваем адаптер списку
-        list_tests_view.setAdapter(adapter);
+        try{
+            // загрузка списка тестов из new_tests.xml
+            tests_1 = getResources().getStringArray(R.array.tests1);
+            // создаем адаптер
+            adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tests_1);
+        } catch (Exception e) {
+            main.getMessage(e.toString());
+        }
 
-        list_tests_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                QuestionActivity q_activ = new QuestionActivity();
-                q_activ.setNumberTest(id);
-                Intent intent = new Intent(ListTestsActivity.this, QuestionActivity.class);
-                intent.addFlags(1073741824);
-                startActivity(intent);
+        try{
+            // присваиваем адаптер списку
+            if (adapter != null) {
+                list_tests_view.setAdapter(adapter);
             }
-        });
+
+            if (list_tests_view != null) {
+                list_tests_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        QuestionActivity q_activ = new QuestionActivity();
+                        q_activ.setNumberTest(id);
+                        Intent intent = new Intent(ListTestsActivity.this, QuestionActivity.class);
+                        intent.addFlags(1073741824);
+                        startActivity(intent);
+                    }
+                });
+            }
+        }catch (Exception e) {
+            main.getMessage(e.toString());
+        }
 
     }
 
