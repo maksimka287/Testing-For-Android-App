@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.sql.SQLDataException;
 
 public class MainActivity extends Activity {
+    private Utility util = new Utility();
 	private GestureDetector gestureDetector;
     private static final String SUCCESS_REG = "Поздравляем, вы зарегистрированы!";
     private static final String FAIL_REG = "Проверьте правильность логина и пароля, \n увы нет такого пользователя";
@@ -64,9 +65,9 @@ public class MainActivity extends Activity {
                 }
 
                 if (do_register) {
-                    getMessage(SUCCESS_REG);
+                    util.getMessage(getApplicationContext(), SUCCESS_REG);
                 } else {
-                    getMessage(FAIL_REG);
+                    util.getMessage(getApplicationContext(), FAIL_REG);
                 }
 
                 if ((do_register) || (authorization)) {
@@ -78,7 +79,7 @@ public class MainActivity extends Activity {
                 // закрываем подключение к БД
                 db_connect.close();
                 } catch(Exception e) {
-                    getMessage(e.toString());
+                    util.getMessage(getApplicationContext(), e.toString());
                 }
             }
 
@@ -146,13 +147,6 @@ public class MainActivity extends Activity {
 	      return false;
 	    }
 	  }
-
-    public void getMessage(String text) {
-        //создаем и отображаем текстовое уведомление
-        Toast toast = Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

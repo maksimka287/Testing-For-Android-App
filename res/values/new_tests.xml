@@ -25,6 +25,15 @@
         <item>...</item>
     </string-array>
 
+    <!--attr name="ghgh">
+        <enum>
+
+        </enum>
+        <flag>
+
+        </flag>
+    </attr-->
+
     <array name="test1">
 
         <item> <string name="question1"> Вопрос 1 </string> </item>

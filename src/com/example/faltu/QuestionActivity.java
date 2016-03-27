@@ -12,12 +12,16 @@ import android.widget.*;
 public class QuestionActivity extends Activity {
 
     private static long number_test = -1;
-    private MainActivity main = new MainActivity();
+    private Utility util = new Utility();
 
-    private RadioButton radio_request1;
-    private RadioButton radio_request2;
-    private RadioButton radio_request3;
-    private int         resultRequest   = -1;
+    private LinearLayout layout_question;
+
+    private RadioGroup radio_requests;                                    // группа для кнопок выбора
+
+    private RadioButton radio_request;                                    // кнопка выбора
+
+    public String[] test_requests = {"Да", "Нет", "Возможно", "Как-то", "Как-то", "Как-то"}; // массив с вариантами ответов
+    public int      quantity_request = -1;                               // количество ответов на данный вопрос
 
     public void setNumberTest(long numTest) {
         this.number_test = numTest;
@@ -57,62 +61,16 @@ public class QuestionActivity extends Activity {
                              "\n и разной другой живности. " +
                              "\n Наверно просто жывотные хотят что-то делать.");
 
-        RadioGroup radio_requests = (RadioGroup) findViewById(R.id.radio_requests);
+        QuestionContentLoad quest_cld = new QuestionContentLoad(getApplicationContext());
 
-        radio_request1 = (RadioButton) findViewById(R.id.radio_request1);
-        radio_request1.setText("Да");
+        //подгружаем варианты выбора на вопрос
 
-        radio_request2 = (RadioButton) findViewById(R.id.radio_request2);
-        radio_request2.setText("Нет");
-
-        radio_request3 = (RadioButton) findViewById(R.id.radio_request3);
-        radio_request3.setText("Возможно");
-
-        radio_request1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resultRequest = 1;
-                getRequest(1);
-            }
-        });
-
-        radio_request2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //resultRequest = 2;
-                getRequest(2);
-            }
-        });
-
-        radio_request3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resultRequest = 3;
-                //getRequest(3);
-            }
-        });
-
-     /*   radio_requests.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                if (radio_request1.isChecked()) {
-                    resultRequest = 1;
-                };
-
-                if (radio_request2.isChecked()) {
-                    resultRequest = 2;
-                };
-
-                if (radio_request3.isChecked()) {
-                    resultRequest = 3;
-                };
-                } catch (Exception e) {
-                    main.getMessage(e.toString());
-                }
-
-            }
-        });*/
+        try{
+            layout_question = (LinearLayout) findViewById(R.id.layout_question);
+            layout_question.addView(quest_cld.generateContent(getApplicationContext()));
+        }catch (Exception e){
+            util.getMessage(getApplication(), e.toString());
+        }
 
     }
 
@@ -122,26 +80,26 @@ public class QuestionActivity extends Activity {
 
         switch (id) {
             case 1 : {
-                main.getMessage("Ответ ДА");
+                util.getMessage(getApplicationContext(), "Ответ ДА");
             }
             break;
             case 2 : {
-                main.getMessage("Ответ НЕТ");
+                util.getMessage(getApplicationContext(), "Ответ НЕТ");
             }
             break;
             case 3 : {
-                main.getMessage("Ответ ВОЗМОЖНО");
+                util.getMessage(getApplicationContext(), "Ответ ВОЗМОЖНО");
             }
             break;
             default: {
-                main.getMessage("Ответ не ясен");
+                util.getMessage(getApplicationContext(), "Ответ не ясен");
             }
             break;
         }
 
         //main.getMessage(message);
         } catch (Exception e) {
-            main.getMessage(e.toString());
+            util.getMessage(getApplicationContext(), e.toString());
         }
 
     }

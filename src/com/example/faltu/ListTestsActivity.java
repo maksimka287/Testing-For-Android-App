@@ -4,17 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
+import android.widget.*;
 
 /**
  * Created by MaKsa on 24.03.16.
  */
 public class ListTestsActivity extends Activity {
 
-    private MainActivity main = new MainActivity();
+    private Utility util = new Utility();
     private ArrayAdapter<String> adapter;
     private ListView list_tests_view;
 
@@ -40,7 +37,7 @@ public class ListTestsActivity extends Activity {
             // находим список
             list_tests_view = (ListView) findViewById(R.id.list_tests_view);
         } catch (Exception e) {
-            main.getMessage(e.toString());
+            util.getMessage(getApplicationContext(), e.toString());
         }
 
         try{
@@ -49,7 +46,7 @@ public class ListTestsActivity extends Activity {
             // создаем адаптер
             adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tests_1);
         } catch (Exception e) {
-            main.getMessage(e.toString());
+            util.getMessage(getApplicationContext(), e.toString());
         }
 
         try{
@@ -70,7 +67,7 @@ public class ListTestsActivity extends Activity {
                 });
             }
         }catch (Exception e) {
-            main.getMessage(e.toString());
+            util.getMessage(getApplicationContext(), e.toString());
         }
 
     }

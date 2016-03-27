@@ -37,20 +37,23 @@
                 <MultiAutoCompleteTextView
                         android:id="@+id/textQuestion"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="20"
                         android:editable="false"
                         android:text=""
                         android:gravity="top"/>
 
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/layout_question"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="20"
                         android:theme="@style/DarkStyleGray"
                         android:gravity="top">
 
-                        <!-- тема от родителя не применяется -->
-                        <RadioGroup
+                        <!-- тема от родителя применяется -->
+                        <!--RadioGroup
                                 android:id="@+id/radio_requests"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
@@ -59,29 +62,14 @@
                                 android:theme="@style/DarkStyleGray">
 
                         <RadioButton
-                                android:id="@+id/radio_request1"
+                                android:id="@+id/radio_requestN"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="24dp"
                                 android:layout_weight="1"
                                 android:theme="@style/DarkStyleGray"/>
 
-                        <RadioButton
-                                android:id="@+id/radio_request2"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="24dp"
-                                android:layout_weight="1"
-                                android:theme="@style/DarkStyleGray"/>
-
-                        <RadioButton
-                                android:id="@+id/radio_request3"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="24dp"
-                                android:layout_weight="1"
-                                android:theme="@style/DarkStyleGray"/>
-                        </RadioGroup>
+                        </RadioGroup-->
 
                 </LinearLayout>
 
