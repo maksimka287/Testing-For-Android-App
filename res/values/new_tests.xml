@@ -35,29 +35,41 @@
     </attr-->
 
     <array name="test1">
+        <item>
+            <string name="question1"> Вопрос 1. </string>
+        </item>
 
-        <item> <string name="question1"> Вопрос 1 </string> </item>
-        <item> <string-array name="request1">
-            <item> Ответ 1 </item>
-            <item> Ответ 2 </item>
-            <item> Ответ 3 </item>
-            <item> Ответ 4 </item>
-        </string-array> </item>
+        <item>
+            <string-array name="request1">
+                <item> Ответ 1_1 </item>
+                <item> Ответ 1_2 </item>
+                <item> Ответ 1_3 </item>
+                <item> Ответ 1_4 </item>
+            </string-array>
+        </item>
 
         <item> <string name="question2"> Вопрос 2 </string> </item>
         <item> <string-array name="request2">
-            <item> Ответ 1 </item>
-            <item> Ответ 2 </item>
-            <item> Ответ 3 </item>
-            <item> Ответ 4 </item>
+            <item> Ответ 2_1 </item>
+            <item> Ответ 2_2 </item>
+            <item> Ответ 2_3 </item>
+            <item> Ответ 2_4 </item>
         </string-array> </item>
 
         <item> <string name="question3"> Вопрос 3 </string> </item>
         <item> <string-array name="request3">
-            <item> Ответ 1 </item>
-            <item> Ответ 2 </item>
-            <item> Ответ 3 </item>
-            <item> Ответ 4 </item>
+            <item> Ответ 3_1 </item>
+            <item> Ответ 3_2 </item>
+            <item> Ответ 3_3 </item>
+            <item> Ответ 3_4 </item>
+        </string-array> </item>
+
+        <item> <string name="question4"> Вопрос 3 </string> </item>
+        <item> <string-array name="request4">
+            <item> Ответ 4_1 </item>
+            <item> Ответ 4_2 </item>
+            <item> Ответ 4_3 </item>
+            <item> Ответ 4_4 </item>
         </string-array> </item>
 
     </array>

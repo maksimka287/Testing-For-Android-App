@@ -60,7 +60,7 @@
         </activity>
         <activity
                 android:label="Вопрос теста"
-                android:name=".QuestionActivity"
+                android:name=".question.QuestionActivity"
                 android:launchMode="singleTop">
         </activity>
         <!--окно с результатами пройденного теста-->
