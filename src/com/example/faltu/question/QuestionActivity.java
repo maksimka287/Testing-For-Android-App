@@ -123,8 +123,6 @@ public class QuestionActivity extends Activity {
             util.getMessage(getApplicationContext(), "load name test error = " + e.toString());
         }
 
-        textQuestion.setText(question);
-
         QuestionContentLoad quest_cld = new QuestionContentLoad(getApplicationContext());
 
         // находим по хеш ключу все ответы для данного вопроса
@@ -133,6 +131,7 @@ public class QuestionActivity extends Activity {
         String request_key = "r"+Integer.toString(index_req);
         String key = question_key + request_key;
         question = list_new.get(question_key);
+        textQuestion.setText(question);
         try {
             while ( list_new.get(key) != null ){
                 request_key = "r"+Integer.toString(index_req);
