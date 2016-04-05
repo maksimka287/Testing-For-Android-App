@@ -60,7 +60,7 @@ public class ListTestsActivity extends Activity {
                 list_tests_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         QuestionActivity q_activ = new QuestionActivity();
-                        q_activ.setNumberTest(id);
+                        q_activ.setNumberTest((int)id);
                         Intent intent = new Intent(ListTestsActivity.this, QuestionActivity.class);
                         intent.addFlags(1073741824);
                         startActivity(intent);
