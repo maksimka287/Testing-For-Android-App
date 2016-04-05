@@ -17,7 +17,8 @@ public class QuestionContentLoad extends LinearLayout {
     private String   test_title = "";                                     // строка в названием теста
     private String   test_question = "";                                  // строка с вопросом
 
-    public  String[] test_requests = {"Да", "Нет", "Возможно", "Как-то", "Как-то", "Как-то"}; // массив с вариантами ответов
+    //public  String[] test_requests = {"Да", "Нет", "Возможно", "Как-то", "Как-то", "Как-то"}; // массив с вариантами ответов
+    public  String[] test_requests = new String[100];
     public  int      quantity_request = -1;                               // количество ответов на данный вопрос
 
     private int      max_requests = 6;                                    // макс. количество ответов, помещающееся
@@ -27,8 +28,8 @@ public class QuestionContentLoad extends LinearLayout {
 
     private LinearLayout layout_question;
 
-    private RadioGroup    radio_requests;                                 // группа для кнопок выбора
-    private RadioButton[] radio_request_arr;                              // массив кнопок выбора
+    //private RadioGroup    radio_requests;                                 // группа для кнопок выбора
+    //private RadioButton[] radio_request_arr;                              // массив кнопок выбора
     private int           resultRequest      = -1;                        // индекс ответа на вопрос
 
     // конструктор от класса extends
@@ -36,21 +37,26 @@ public class QuestionContentLoad extends LinearLayout {
         super(context);
     }
 
+    public void setTestRequests(String[] string_requests) {
+        test_requests = new String[10];
+        this.test_requests = string_requests;
+    }
+
     //создание необходимого количества кнопок для ответа на вопрос
     public LinearLayout generateContent(Context context) {
         //context = quest_act.getBaseContext();
+        RadioGroup radio_requests = new RadioGroup(context);
+       // try{
+       //     radio_requests = new RadioGroup(context);
+       // }catch (Exception e){
+       ///     util.getMessage(context, e.toString());
+       // }
 
-        try{
-            radio_requests = new RadioGroup(context);
-        }catch (Exception e){
-            util.getMessage(context, e.toString());
-        }
-
-        quantity_request = test_requests.length-1;
+        quantity_request = 1;//test_requests.length-1;
         //util.getMessage(context, "Quantity Requests = " + quantity_request);
 
         try{
-            radio_request_arr = new RadioButton[100];
+            RadioButton[] radio_request_arr = new RadioButton[100];
             // в цикле создаем необходимое количество кнопок выбора
             for (int index_request = 0; index_request <= quantity_request; index_request++) {
                 radio_request_arr[index_request] = new RadioButton(context);
@@ -91,7 +97,7 @@ public class QuestionContentLoad extends LinearLayout {
             util.getMessage(context, e.toString());
         }
 
-        util.getMessage(context, "Button checked = " + radio_requests.getCheckedRadioButtonId());
+        //util.getMessage(context, "Button checked = " + radio_requests.getCheckedRadioButtonId());
 
         try{
      //       layout_question = (LinearLayout) findViewById(R.id.layout_question);
