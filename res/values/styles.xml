@@ -22,7 +22,7 @@
     </style>
 
     <style name="DarkStyleGray" parent="DarkStyle">
-        <item name="android:textColor">#20507F</item>
+        <item name="android:textColor">#10406F</item>
         <item name="android:windowBackground">@android:color/darker_gray</item>
         <!-- не использовать приложение падает -->
         <!--item name="android:background">@android:color/tertiary_text_dark</item-->

@@ -11,38 +11,65 @@
         tools:context=".QuestionActivity"
         android:background="@drawable/fon2">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:theme="@style/DarkStyleGray"
-                  android:background="@android:color/darker_gray"
-                  android:alpha="0.95">
-
-        <TextView
-                android:id="@+id/testResultTitle"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text=""
-                android:layout_marginLeft="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginTop="2dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="top"
-                android:theme="@style/DarkStyleGray"/>
+                android:layout_height="match_parent"
+                android:theme="@style/DarkStyleGray"
+                android:background="@android:color/darker_gray"
+                android:alpha="0.95">
 
-        <MultiAutoCompleteTextView
-                android:id="@+id/textResult"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="20"
-                android:editable="false"
-                android:text=""
-                android:gravity="top"/>
+                <TextView
+                        android:id="@+id/testResultTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:text=""
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginTop="2dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:gravity="top"
+                        android:theme="@style/DarkStyleGray"/>
 
-    </LinearLayout>
+                <MultiAutoCompleteTextView
+                        android:id="@+id/textResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="20"
+                        android:editable="false"
+                        android:text=""
+                        android:gravity="top"/>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/DarkStyleGray"
+                        android:gravity="bottom">
+                        <Button
+                                android:id="@+id/result_profile"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="0dp"
+                                android:text="Профиль">
+                        </Button>
+                        <Button
+                                android:id="@+id/result_list_tests"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="0dp"
+                                android:text="Список тестов">
+                        </Button>
+
+                </LinearLayout>
+
+        </LinearLayout>
 
 </RelativeLayout>

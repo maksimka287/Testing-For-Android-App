@@ -40,8 +40,9 @@ public class Utility {
     //xpp.getAttributeValue(1); // значение первого атрибута
 
     // парсим xml ресурс с тестом
-    public Map<String, String> parsingXML(Context context, Activity activity) {
-        Map<String, String> list_new = new HashMap<String, String>();
+    public Map<Integer, Map<String, String>> parsingXML(Context context, Activity activity) {
+        Map<String, String> list_quest_request = new HashMap<String, String>();;
+        Map<Integer, Map<String, String>> list_tests = new HashMap<Integer, Map<String, String>>();
         try {
             // get a new XmlPullParser object from Factory
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
@@ -63,7 +64,7 @@ public class Utility {
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 switch (xpp.getEventType()) {
                     case XmlPullParser.START_DOCUMENT: { // начало файла
-                        getMessage(context, "start read file = test_new_1");
+                        //getMessage(context, "start read file = test_new_1");
                     }
                     break;
                     case XmlPullParser.START_TAG: { // начало тега
@@ -79,7 +80,7 @@ public class Utility {
                                 if ( attribute_name_tag.indexOf("request") != -1 ) {
                                     try {
                                         String request_key = "r"+Integer.toString(index_request);
-                                        list_new.put(question_key+request_key,attribute_value_tag);
+                                        list_quest_request.put(question_key+request_key,attribute_value_tag);
                                         index_request++;
                                     } catch (Exception e) {
                                         getMessage(context, "add attr exception = " + e.toString());
@@ -90,7 +91,16 @@ public class Utility {
                     }
                     break;
                     case XmlPullParser.END_TAG: { // конец тега
-
+                        // в закрывающем теге test сохраням тест в контейнер
+                        if ( xpp.getName().equals("test") ) {
+                            list_tests.put(index_tests, list_quest_request);
+                            list_quest_request = new HashMap<String, String>();
+                            index_tests++;
+                            index_question = 0;
+                            index_request = 0;
+                            ListTestsActivity list_tests_act = new ListTestsActivity();
+                            list_tests_act.setQuantityTest(index_tests);
+                        }
                     }
                     break;
                     case XmlPullParser.TEXT: { // содержимое тега
@@ -99,14 +109,18 @@ public class Utility {
                         }
                         if ( name_tag.equals("title") ) {
                             // запоминаем имя теста
-                            list_new.put(name_tag,value_tag);
+                            list_quest_request.put(name_tag,value_tag);
                             //index_tests++;
                         } else if ( name_tag.equals("question") ) {
                             // запоминаем вопросы
                             index_request = 0;
                             question_key = "q"+Integer.toString(index_question);
-                            list_new.put(question_key,value_tag);
+                            list_quest_request.put(question_key,value_tag);
                             index_question++;
+                        } else if ( name_tag.equals("test") ) {
+                            //создаем новый контейнер теста
+                            //list_quest_request = new HashMap<String, String>();
+                            //list_quest_request.clear();
                         }
                     }
                     break;
@@ -124,7 +138,7 @@ public class Utility {
         } catch (Exception e) {
             getMessage(context, "Read xml exception = " + e.toString());
         }
-        return list_new;
+        return list_tests;
     }
 
 }

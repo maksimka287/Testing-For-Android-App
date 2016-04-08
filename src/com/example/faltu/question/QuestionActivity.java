@@ -23,35 +23,35 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by MaKsa on 24.03.16.
  */
 public class QuestionActivity extends Activity {
 
-    private static int number_test     = -1;      // номер теста
-    private int number_question = 0;       // номер вопроса
-    private Utility util = new Utility();
-    private Map<String, String> list_new = new HashMap<String, String>();
+    private static int                number_test     = -1;                 // номер теста
+    private int                       number_question = 0;                  // номер вопроса
+    private Utility                   util            = new Utility();
+    private Map<String, String>       list_new        = new HashMap<String, String>();   //контейнер с содержимым теста
+    private static Map<Integer, Map<String, String>> list_tests
+         = new HashMap<Integer, Map<String, String>>();                     //контейнер с тестами
+    private Map<Integer, Integer>     list_result_request
+         = new HashMap<Integer, Integer>();                                 //контейнер с результатами ответов
+    private List<String>              list_requests
+         = new LinkedList<String>();                                        //контейнер с вариантами ответов
+    private LinearLayout              layout_question;                      //визуальный контейнер для вариантов ответа
+    private TextView                  testTitle;                            //объект для названия теста
+    private MultiAutoCompleteTextView textQuestion;                         //объект для вопроса
+    private QuestionContentLoad       quest_cld;                            //указатель(ссылка) на вспомогательный класс
 
-    private LinearLayout layout_question;
-    private String[]     tests_1;                                         // список названий тестов
-
-    private boolean initialize = false;
-    private String question ="";
-    String[] requests = new String[100];
-    private TextView testTitle;
-    private MultiAutoCompleteTextView textQuestion;
-
-
-    public String[] test_requests = {"Да", "Нет", "Возможно", "Как-то", "Как-то", "Как-то"}; // массив с вариантами ответов
-    public int      quantity_request = -1;                               // количество ответов на данный вопрос
 
     public void setNumberTest(int numTest) {
         this.number_test = numTest;
+    }
+
+    public void setListTests(Map<Integer, Map<String, String>> list_tests) {
+        this.list_tests = list_tests;
     }
 
     @Override
@@ -59,10 +59,13 @@ public class QuestionActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_activity);
 
+        quest_cld = new QuestionContentLoad(getApplicationContext());
+
         Button endTest = (Button) findViewById(R.id.end_test);
         endTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // завершение теста на текущем вопросе и переход к профилю
                 Intent intent = new Intent(QuestionActivity.this, ProfileActivity.class);
                 intent.addFlags(1073741824);
                 startActivity(intent);
@@ -73,9 +76,11 @@ public class QuestionActivity extends Activity {
         skipQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QuestionActivity.this, ProfileActivity.class);
-                intent.addFlags(1073741824);
-                startActivity(intent);
+                // переход к следующему вопросу теста
+                // без проверки что ответ выбран
+                // закончились вопросы переходим к окну результатов
+                number_question++;
+                getNextQuestion();
             }
         });
 
@@ -83,77 +88,73 @@ public class QuestionActivity extends Activity {
         nextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                util.getMessage(getApplicationContext(),"Переходим к следующему вопросу");
+                // переход к следующему вопросу теста
+                // закончились вопросы переходим к окну результатов
+            if (quest_cld.getResultRequest()!=-1) {
+                list_result_request.put( number_question, quest_cld.getResultRequest() );
                 number_question++;
                 getNextQuestion();
-                /* здесь мы не должны переходить в другое окно
-                *  до ответа на последний вопрос данного теста
-                *  и после этого момента переходим к окну результатов.
-                */
-                //Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
-                //intent.addFlags(1073741824);
-                //startActivity(intent);
+                quest_cld.setResultRequest(-1);
+            } else{
+                util.getMessage(getApplicationContext(),"Не выбран вариант ответа.");
+            }
             }
         });
 
         testTitle = (TextView) findViewById(R.id.testTitle);
+
+        // парсим xml ресурс с тестом
+        //list_tests = util.parsingXML(getApplicationContext(),this);
+        //достаем выбранный тест
+        list_new = list_tests.get(number_test);
+        // достаем название теста
+        if ( list_new.get("title") != null ) {
+            testTitle.setText(list_new.get("title"));
+        }
+
         textQuestion = (MultiAutoCompleteTextView) findViewById(R.id.textQuestion);
-/*        textQuestion.setText("Первый вопрос, как выдумаете зачем " +
-                             "содается так много машин, заводов " +
-                             "и разной другой живности. " +
-                             "Наверно просто жывотные хотят что-то делать.");
-*/
+
         getNextQuestion();
 
     }
 
     public void getNextQuestion() {
 
-        // парсим xml ресурс с тестом
-        list_new = util.parsingXML(getApplicationContext(),this);
-
-        // загрузка списка тестов из new_tests.xml
-        try {
-            tests_1 = getResources().getStringArray(R.array.tests1);
-            //util.getMessage(getApplicationContext(), "test = " + number_test);
-            if (tests_1[number_test] != null) {
-                testTitle.setText(tests_1[number_test]);
-            }
-        }catch (Exception e) {
-            util.getMessage(getApplicationContext(), "load name test error = " + e.toString());
-        }
-
-        QuestionContentLoad quest_cld = new QuestionContentLoad(getApplicationContext());
-
         // находим по хеш ключу все ответы для данного вопроса
         String question_key = "q"+Integer.toString(number_question);
         int index_req =0;
         String request_key = "r"+Integer.toString(index_req);
         String key = question_key + request_key;
-        question = list_new.get(question_key);
-        textQuestion.setText(question);
+
+        if ( list_new.get(question_key) == null ) {
+            ResultActivity result_act = new ResultActivity();
+            //передача вариантов ответов в класс результата
+            result_act.setListRequest(list_result_request);
+            Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
+            intent.addFlags(1073741824);
+            startActivity(intent);
+        }
+        textQuestion.setText(list_new.get(question_key));
         try {
+            list_requests.clear();
             while ( list_new.get(key) != null ){
                 request_key = "r"+Integer.toString(index_req);
                 key = question_key + request_key;
                 if ( list_new.get(key)!=null ) {
-                    requests[index_req] = list_new.get(key);
-                    util.getMessage(getApplicationContext(), list_new.get(key));
+                    list_requests.add(list_new.get(key));
+                    //util.getMessage(getApplicationContext(), list_new.get(key));
                 }
                 index_req++;
             }
         } catch (Exception e) {
-            util.getMessage(getApplication(),"Get request exception =" + e.toString());
+            util.getMessage(getApplication(),"Get request exception = " + e.toString());
         }
 
-        //отправляем ответы в спомогательный класс для отрисовки кнопок выбора
-        quest_cld.setTestRequests(requests);
-
-        //подгружаем варианты выбора на вопрос
+        //подгружаем варианты ответа на вопрос
         try{
             layout_question = (LinearLayout) findViewById(R.id.layout_question);
             layout_question.removeAllViews();
-            layout_question.addView(quest_cld.generateContent(getApplicationContext()));
+            layout_question.addView( quest_cld.generateContent( getApplicationContext(), list_requests ) );
             layout_question.forceLayout();
         }catch (Exception e){
             util.getMessage(getApplication(), e.toString());
